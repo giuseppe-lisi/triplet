@@ -31,7 +31,6 @@ public class Song {
     @NotBlank(message = "Please enter a duration for the song")
     private String duration;
 
-    @NotBlank
     @Column(name = "yt_link")
     private String ytLink;    
 
