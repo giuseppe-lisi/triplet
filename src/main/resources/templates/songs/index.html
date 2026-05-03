@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="~{ fragments/imports :: head }"></div>
+    <title>Songs List</title>
+</head>
+
+<body class="bg-body-secondary" style="margin-top: 120px;">
+    <header>
+        <div th:replace="~{ fragments/navbar :: navbar }"></div>
+        <div th:replace="~{ fragments/offcanvas :: offcanvas }"></div>
+    </header>
+
+    <main>
+        <div class="container bg-white mt-5 mb-5 pt-3 rounded-3">
+            <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h3 class="fw-light me-3">Songs List</h3>
+                </div>
+                <form th:action="@{/songs}" method="GET">
+                    <input type="text" placeholder="Search..." id="title" name="title" class="form-text">
+                    <button class="btn btn-sm bg-primary-subtle rounded-3" type="submit">Search</button>
+                </form>
+            </div>
+            <hr>
+            <table class="table table-hover row-gap-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Artist</th>
+                        <th scope="col">Album</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="row" th:each="song : ${songs}" th:object="${song}">
+                        <td th:text="*{title}"></td>
+                        <td th:text="*{duration}"></td>
+                        <td th:text="*{album.getBandOrArtist()}"></td>
+                        <td th:text="*{album.getTitle()}"></td>
+                        <td>
+                            <!-- Modal trigger -->
+                            <button type="button" class="btn bg-danger-subtle rounded-3 btn-sm" data-bs-toggle="modal"
+                                th:data-bs-target="'#modal' + *{id}">
+                                Delete
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" th:id="'modal' + *{id}" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5">Delete song?</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>You are about to delete the song: [[*{title}]]. It will also be deleted
+                                                from all albums that contain it</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-sm bg-primary-subtle rounded-3"
+                                                data-bs-dismiss="modal">Back</button>
+                                            <form th:action="'/songs/delete/' + *{id}" method="POST">
+                                                <button type="submit"
+                                                    class="btn bg-danger-subtle rounded-3 btn-sm">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <!-- Bootstrap js -->
+    <div th:replace="~{ fragments/imports :: bsScript }"></div>
+</body>
+
+</html>
