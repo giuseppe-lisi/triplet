@@ -14,7 +14,7 @@ public class AlbumsService {
     
     @Autowired
     private AlbumsRepository albumsRepo;
-
+    
     public List<Album> getAllAlbums() {
         return albumsRepo.findAll();
     }
@@ -29,6 +29,10 @@ public class AlbumsService {
 
     public void delete(Integer id) {
         albumsRepo.deleteById(id);
+    }
+
+    public List<Album> findByTitle(String title) {
+        return albumsRepo.findByTitleContaining(title);
     }
 
 }
