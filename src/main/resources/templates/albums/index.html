@@ -15,8 +15,15 @@
     <main>
         <div class="container bg-white mt-5 mb-5 pt-3 rounded-3">
             <div class="d-flex justify-content-between">
-                <h3 class="fw-light">Albums List</h3>
-                <a th:href="@{albums/create}"><button class="btn btn-sm bg-primary-subtle">Create new Album</button></a>
+                <div class="d-flex align-items-center">
+                    <h3 class="fw-light me-3">Albums List</h3>
+                    <a th:href="@{'/albums/create'}" class="ms-3"><button class="btn btn-sm bg-primary-subtle rounded-3">Add new
+                            album</button></a>
+                </div>
+                <form th:action="@{/albums}" method="GET">
+                    <input type="text" placeholder="Search..." id="title" name="title" class="form-text">
+                    <button class="btn btn-sm bg-primary-subtle rounded-3" type="submit">Search</button>
+                </form>
             </div>
             <hr>
             <table class="table table-hover row-gap-3">
