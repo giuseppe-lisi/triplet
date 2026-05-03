@@ -1,6 +1,5 @@
 package com.mysongs.backend.controllers;
 
-import com.mysongs.backend.repositories.AlbumsRepository;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mysongs.backend.model.Album;
 import com.mysongs.backend.service.AlbumsService;
@@ -18,30 +18,25 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-
-
 
 @Controller
 @RequestMapping("/albums")
 public class AlbumController {
 
-    private final AlbumsRepository albumsRepository;
     @Autowired
     private AlbumsService albumService;
 
-    AlbumController(AlbumsRepository albumsRepository) {
-        this.albumsRepository = albumsRepository;
-    }
-
     @GetMapping
-    public String index(Model model) {
-        List<Album> albums = albumService.getAllAlbums();
+    public String index(Model model, @RequestParam(required = false) String title) {
 
-        model.addAttribute("albums", albums);
+        if (title != null) {
+            List<Album> albums = albumService.findByTitle(title);
+            model.addAttribute("albums", albums);
+        } else {
+            List<Album> albums = albumService.getAllAlbums();
+            model.addAttribute("albums", albums);
+        }
 
         return "albums/index";
     }
