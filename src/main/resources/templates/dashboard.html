@@ -2,27 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <div th:replace="~{ fragments/head :: head }"></div>
+    <div th:replace="~{ fragments/imports :: head }"></div>
     <title>Dashboard</title>
 </head>
 
-<body class="bg-body-secondary">
+<body class="bg-body-secondary" style="margin-top: 120px;">
     <header>
         <div th:replace="~{ fragments/navbar :: navbar }"></div>
         <div th:replace="~{ fragments/offcanvas :: offcanvas }"></div>
     </header>
 
     <main>
-        <h1>Hello world!</h1>
+        <div class="container bg-white p-3 rounded-3">
+            <h3>What do you need to do today?</h3>
+            <a th:href="@{/albums}"><button class="btn btn-sm bg-primary-subtle">View album list</button></a>
+        </div>
     </main>
 
     <footer>
 
     </footer>
     <!-- Bootstrap js -->
-    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js}"
-    integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div th:replace="~{ fragments/imports :: bsScript }"></div>
 </body>
 
 </html>

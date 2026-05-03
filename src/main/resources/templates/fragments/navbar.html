@@ -1,16 +1,22 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm" th:fragment="navbar">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top shadow-sm" th:fragment="navbar">
   <div class="container-fluid">
     <div class="navbar-brand d-flex align-items-center">
-      <img th:src="@{imgs/logo.png}" alt="Logo" width="50" height="24" class="d-inline-block align-text-top">
+      <a th:href="@{/}">
+        <img th:src="@{/imgs/logo.png}" alt="Logo" width="50" class="d-inline-block align-text-top">
+      </a>
       <h1 class="fs-4">Triplet Dashboard</h1>
     </div>
     <div class="navbar-nav">
-      <a class="nav-link" href="#">Home</a>
-      <a class="nav-link" href="#">Features</a>
-      <a class="nav-link" href="#">Pricing</a>
-      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvas">
-        toggle
-      </button>
+      <a th:href="@{/}" class="link-underline link-underline-opacity-0">
+        <button
+          class="btn btn-sm rounded-circle me-3 d-flex justify-content-center align-items-center bg-primary-subtle p-3"
+          style="width: 15px; height: 15px;"><i class="fa-regular fa-house"></i></button>
+      </a>
+      <a class="link-underline link-underline-opacity-0">
+        <button class="btn btn-sm rounded-circle d-flex justify-content-center align-items-center bg-primary-subtle p-3"
+          style="width: 15px; height: 15px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvas"><i
+            class="fa-solid fa-angle-left"></i></button>
+      </a>
     </div>
   </div>
 </nav>
