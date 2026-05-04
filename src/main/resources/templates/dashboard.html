@@ -38,18 +38,18 @@
                     <h5 class="fw-light">Create new album</h5>
                     <a th:href="@{/albums/create}"><button class="btn btn-sm bg-primary-subtle">Create</button></a>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-6">
-                        <h5 class="fw-light">View the list of all songs</h5>
-                        <a th:href="@{/songs}"><button class="btn btn-sm bg-primary-subtle">View</button></a>
-                    </div>
-                    <div class="col-6">
-                        <h5 class="fw-light">Search Album</h5>
-                        <form method="GET" th:action="@{/albums}">
-                            <input type="text" class="form-control" placeholder="Cerca..." name="title">
-                            <button class="btn btn-sm bg-primary-subtle mt-3" type="submit">Cerca</button>
-                        </form>
-                    </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-6">
+                    <h5 class="fw-light">View the list of all songs</h5>
+                    <a th:href="@{/songs}"><button class="btn btn-sm bg-primary-subtle">View</button></a>
+                </div>
+                <div class="col-6">
+                    <h5 class="fw-light">Search Album</h5>
+                    <form method="GET" th:action="@{/albums}">
+                        <input type="text" class="form-control" placeholder="Cerca..." name="title">
+                        <button class="btn btn-sm bg-primary-subtle mt-3" type="submit">Cerca</button>
+                    </form>
                 </div>
             </div>
         </div>
