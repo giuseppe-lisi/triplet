@@ -556,3 +556,23 @@ INSERT INTO songs (album_id, title, duration, yt_link) VALUES
 (40, 'Last Nite', '3:17', 'https://www.youtube.com/watch?v=nDbeqj-1XOo'),
 (40, 'Hard to Explain', '3:44', 'https://www.youtube.com/watch?v=nDbeqj-1XOo'),
 (40, 'Take It or Leave It', '3:16', 'https://www.youtube.com/watch?v=nDbeqj-1XOo');
+
+
+-- SECURITY INSERTS
+
+-- 1. Insert Admin Role
+INSERT INTO roles (role) VALUES ('ADMIN');
+
+-- 2. Insert Users
+INSERT INTO users (username, password) VALUES ('admin', '{noop}password123');
+INSERT INTO users (username, password) VALUES ('pescelesso', '{noop}admin_pass');
+INSERT INTO users (username, password) VALUES ('ceo', '{noop}secure_admin');
+INSERT INTO users (username, password) VALUES ('dev_admin', '{noop}dev_pass');
+INSERT INTO users (username, password) VALUES ('super_user', '{noop}super_pass');
+
+-- 3. give admin to all users
+INSERT INTO user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO user_role (user_id, role_id) VALUES (2, 1);
+INSERT INTO user_role (user_id, role_id) VALUES (3, 1);
+INSERT INTO user_role (user_id, role_id) VALUES (4, 1);
+INSERT INTO user_role (user_id, role_id) VALUES (5, 1);
