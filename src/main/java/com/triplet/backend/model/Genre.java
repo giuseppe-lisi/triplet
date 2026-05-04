@@ -1,4 +1,4 @@
-package com.mysongs.backend.model;
+package com.triplet.backend.model;
 
 import java.util.Set;
 

@@ -1,4 +1,4 @@
-package com.mysongs.backend.controllers;
+package com.triplet.backend.controllers;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,8 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mysongs.backend.model.Album;
-import com.mysongs.backend.service.AlbumsService;
+import com.triplet.backend.model.Album;
+import com.triplet.backend.service.AlbumsService;
 
 import jakarta.validation.Valid;
 

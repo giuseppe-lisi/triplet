@@ -1,4 +1,4 @@
-package com.mysongs.backend.service;
+package com.triplet.backend.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mysongs.backend.model.Album;
-import com.mysongs.backend.repositories.AlbumsRepository;
+import com.triplet.backend.model.Album;
+import com.triplet.backend.repositories.AlbumsRepository;
 
 @Service
 public class AlbumsService {

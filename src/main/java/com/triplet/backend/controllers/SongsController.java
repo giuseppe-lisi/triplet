@@ -1,4 +1,4 @@
-package com.mysongs.backend.controllers;
+package com.triplet.backend.controllers;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mysongs.backend.model.Album;
-import com.mysongs.backend.model.Song;
-import com.mysongs.backend.repositories.SongsRepository;
-import com.mysongs.backend.service.AlbumsService;
+import com.triplet.backend.model.Album;
+import com.triplet.backend.model.Song;
+import com.triplet.backend.repositories.SongsRepository;
+import com.triplet.backend.service.AlbumsService;
 
 import jakarta.validation.Valid;
 

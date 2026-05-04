@@ -1,11 +1,10 @@
-package com.mysongs.backend.service;
+package com.triplet.backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mysongs.backend.repositories.AlbumsRepository;
-import com.mysongs.backend.repositories.GenresRepository;
-import com.mysongs.backend.repositories.SongsRepository;
+import com.triplet.backend.repositories.GenresRepository;
+import com.triplet.backend.repositories.SongsRepository;
 
 @Service
 public class DashboardService {

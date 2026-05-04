@@ -1,4 +1,4 @@
-package com.mysongs.backend;
+package com.triplet.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
