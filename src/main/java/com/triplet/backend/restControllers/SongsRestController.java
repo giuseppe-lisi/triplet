@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.triplet.backend.model.Song;
 import com.triplet.backend.repositories.SongsRepository;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/songs")
 public class SongsRestController {

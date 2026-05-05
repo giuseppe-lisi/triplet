@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.triplet.backend.model.Album;
 import com.triplet.backend.service.AlbumsService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/albums")
 public class AlbumsRestController {
