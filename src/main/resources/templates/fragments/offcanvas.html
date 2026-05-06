@@ -1,0 +1,32 @@
+<div th:fragment="offcanvas">
+    <div class="offcanvas offcanvas-end" data-bs-theme="dark" tabindex="-1" id="offCanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offCanvasLabel">Triplet</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column justify-content-between h-100">
+                <div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a th:href="@{/}" class="link-underline-opacity-0 link-underline text-white">Home</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/albums}" class="link-underline-opacity-0 link-underline text-white">Album
+                                list</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/songs}" class="link-underline-opacity-0 link-underline text-white">Song
+                                list</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mb-5">
+                    <hr>
+                    <a th:href="@{/logout}" class="link-underline link-underline-opacity-0 text-white"><i
+                            class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+
+                </div>
+            </div>
+        </div>
+    </div>

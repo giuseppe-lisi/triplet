@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="~{ fragments/imports :: head}"></div>
+    <title>Triplet Login</title>
+</head>
+
+<body class="container mt-5 d-flex justify-content-center">
+    <form th:action="@{/login}" method="post">
+        <h3 class="fw-light">Please Login</h3>
+        <div th:if="${param.error}" class="alert alert-danger">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+        <div class="d-flex flex-column">
+            <div>
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-control"/>
+            </div>
+            <div>
+                <label for="password" class="form-label mt-3">Password</label>
+                <input type="password" id="password" name="password" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-sm bg-primary-subtle rounded-3 mt-3">Log in</button>
+        </div>
+    </form>
+</body>
+
+</html>
