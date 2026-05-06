@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="~{ fragments/imports :: head }"></div>
+    <title>Album Detail</title>
+</head>
+
+<body class="bg-body-secondary" style="margin-top: 120px;">
+    <header>
+        <div th:replace="~{ fragments/navbar :: navbar }"></div>
+        <div th:replace="~{ fragments/offcanvas :: offcanvas }"></div>
+    </header>
+
+    <main th:object="${album}">
+        <div class="container bg-white p-3 rounded-3 mb-5" th:if="${album != null}">
+            <div class="row">
+                <div class="col-3">
+                    <img th:src="*{img}" class="rounded-3 w-100">
+                    <h3 th:text="*{title}"></h3>
+                    <h5 th:text="*{bandOrArtist}" class="fw-light"></h5>
+                    <p th:text="*{releaseDate} + ' - ' + *{length}" class="fw-lighter text-secondary"></p>
+                    <div class="d-flex gap-3">
+                        <small class="bg-primary-subtle rounded-pill px-3" th:each="genre : ${album.genres}"
+                            th:text="${genre.name}"></small>
+                    </div>
+                    <hr>
+                    <p th:text="*{description}" class="text-muted"></p>
+                </div>
+                <div class="col ms-3">
+                    <h5 class="fw-light">Songs</h5>
+                    <table class="table table-hover row-gap-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">Title</th>
+                                <th scope="col">Duration</th>
+                                <th scope="col">Link</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr scope="row" th:each="song : ${album.songs}" th:object="${song}">
+                                <td th:text="*{title}"></td>
+                                <td th:text="*{duration}"></td>
+                                <td><a th:href="@{*{ytLink}}"><i class="fa-brands fa-youtube"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" class="d-flex gap-3 align.align-items-center">
+                                    Add new song to this album
+                                    <a class="link-underline link-underline-opacity-0"
+                                        th:href="@{'/songs/create/' + ${album.id}}">
+                                        <button
+                                            class="btn btn-sm rounded-circle d-flex text-end justify-content-center align-items-center bg-primary-subtle p-3"
+                                            style="width: 15px; height: 15px;" type="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container bg-warning-subtle p-3 rounded-3" th:unless="${album != null}">
+            <h5 class="fw-light">No such album with that id</h5>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <!-- Bootstrap js -->
+    <div th:replace="~{ fragments/imports :: bsScript }"></div>
+</body>
+
+</html>
