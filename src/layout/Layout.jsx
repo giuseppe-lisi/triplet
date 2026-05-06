@@ -1,17 +1,23 @@
 import { Outlet } from "react-router-dom"
 
+import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
+
 function Layout() {
+
+    const [compactMode, setCompactMode] = useState(false);
+
+    const toggleCompactMode = () => {setCompactMode(!compactMode)};
+
+    useEffect(() => {console.log(compactMode);
+    } ,[compactMode])
+
     return (
         <>
-            <header className="container">
-                <nav>
-                    <div className="bg-warning">
-                        <img src="/logo.png" />
-                        <h1>Triplet</h1>
-                    </div>
-                </nav>
-            </header>
-            <Outlet />
+            <div id="page">
+                <Navbar toggleCompactMode={toggleCompactMode}/>
+                <Outlet context={compactMode}/>
+            </div>
         </>
     )
 }
