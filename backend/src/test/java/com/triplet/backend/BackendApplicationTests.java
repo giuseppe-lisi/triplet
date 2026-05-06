@@ -1,4 +1,4 @@
-package com.mysongs.backend;
+package com.triplet.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
