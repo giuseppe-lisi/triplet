@@ -23,14 +23,18 @@ Triplet is a full fledged web app with a backend to handle role based user login
 git clone https://github.com/giuseppe-lisi/triplet
 ```
 
-2. In the application.properties file change the spring.datasource.url to 'jdbc:mysql://localhost:{YourPort}/{YourSchemaName}' aswell as the username and password to match your login credentials to your db
+2. In the application.properties file change the spring.datasource.url to
+```
+jdbc:mysql://localhost:{YourPort}/{YourSchemaName}
+```
+aswell as the username and password to match your login credentials to your db
 
-3. Then cd into `cd triplet/backend` and run the BackendApplication with `mvn spring-boot:run`. This will also populate your db
+5. Then cd into `cd triplet/backend` and run the BackendApplication with `mvn spring-boot:run`. This will also populate your db
 
-4. cd into `cd ../frontend` and run `npm i` to install frontend dependencies
+6. cd into `cd ../frontend` and run `npm i` to install frontend dependencies
 
-5. Run `npm run dev` to run the front end
+7. Run `npm run dev` to run the front end
 
-6. In a broswer, open 'http://localhost:{YourFrontEndPort}' to access the db as a guest user through the frontend
+8. In a broswer, open 'http://localhost:{YourFrontEndPort}' to access the db as a guest user through the frontend
 
-7. You can also login into the backend by going to 'http://localhost:8080/' (port 8080 is default for Spring) and logging in with any of the allowed users mentioned in the import.sql file. Not using one of these login credentials will not let you use backend features.
+9. You can also login into the backend by going to 'http://localhost:8080/' (port 8080 is default for Spring) and logging in with any of the allowed users mentioned in the import.sql file. Not using one of these login credentials will not let you use backend features.
